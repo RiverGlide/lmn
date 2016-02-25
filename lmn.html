@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="http://www.turnjs.com/lib/turn.min.js"></script>
+    <script src="http://www.turnjs.com/lib/scissor.min.js"></script>
+      <script type="text/javascript">
+        $(window).ready(function() {
+            $('#magazine .double').scissor();
+            $('#magazine').turn({
+display: 'double',
+acceleration: true,
+gradients: !$.isTouch,
+elevation:50,
+duration: 2000
+});
+            });
+
+
+$(window).bind('keydown', function(e){
+
+    if (e.keyCode==37)
+    $('#magazine').turn('previous');
+    else if (e.keyCode==39)
+    $('#magazine').turn('next');
+
+    });
+  </script>
+    <style type="text/css">
+      body{
+        background:#ccc;
+      }
+      #magazine{
+        width:960px;
+        height:540px;
+      }
+      #magazine .turn-page{
+        background-color:#ccc;
+        background-size:100% 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="magazine">
+      <img src="cover.png" />
+      <img class="double" src="lmn_1.png" />
+      <img class="double" src="lmn_2.png" />
+      <img class="double" src="lmn_3.png" />
+      <img class="double" src="lmn_4.png" />
+      <img class="double" src="lmn_5.png" />
+      <img class="double" src="lmn_6.png" />
+      <a class="double" href="mailto:talktous@riverglide.com?subject=Let's be friends"><img  src="lmn_7.png" /></a>
+    </div>
+  </body>
+</html>
